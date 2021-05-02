@@ -35,7 +35,7 @@ module.exports = function sendOK (data, options) {
 
   // Attempt to prettify data for views, if it's a non-error object
   var viewData = data;
-  if (!(viewData instanceof Error) && 'object' == typeof viewData) {
+  if (!(viewData instanceof Error) && typeof viewData == 'object') {
     try {
       viewData = require('util').inspect(data, {depth: null});
     }
