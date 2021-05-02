@@ -7,8 +7,12 @@
   },
   "dependencies": {
     "applicationinsights": "^1.8.10",
+ depfu/update/Tests/npm/gulp-4.0.2
+    "gulp": "^4.0.2",
+=======
     "gulp": "^3.9.1",
 depfu/update/Tests/npm/mocha-junit-reporter-2.0.0
+ master
     "mocha": "^5.2.0",
     "mocha-junit-reporter": "^2.0.0",
 =======
