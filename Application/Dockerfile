@@ -1,4 +1,4 @@
-FROM node:17.0.1
+FROM node:17.1.0
 LABEL maintainer="Azure App Service Container Images <appsvc-images@microsoft.com>"
 
 # Create app directory
