@@ -7,7 +7,7 @@
   "dependencies": {
     "applicationinsights": "^2.3.1",
     "ejs": "3.1.6",
-    "grunt": "1.4.1",
+    "grunt": "1.5.3",
     "grunt-contrib-clean": "2.0.1",
     "grunt-contrib-coffee": "2.1.0",
     "grunt-contrib-concat": "2.1.0",
@@ -15,7 +15,7 @@
     "grunt-contrib-cssmin": "4.0.0",
     "grunt-contrib-jst": "2.0.0",
     "grunt-contrib-less": "3.0.0",
-    "grunt-contrib-uglify": "5.1.0",
+    "grunt-contrib-uglify": "5.2.1",
     "grunt-contrib-watch": "1.1.0",
     "grunt-sails-linker": "~1.0.4",
     "grunt-sync": "0.8.2",
