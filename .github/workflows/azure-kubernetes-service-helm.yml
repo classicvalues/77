@@ -59,7 +59,7 @@ jobs:
     
     # Logs in with your Azure credentials
     - name: Azure login
-      uses: azure/login@v1.4.3
+      uses: azure/login@v1.4.5
       with:
         client-id: ${{ secrets.AZURE_CLIENT_ID }}
         tenant-id: ${{ secrets.AZURE_TENANT_ID }}
@@ -78,7 +78,7 @@ jobs:
     steps:
     # Logs in with your Azure credentials
     - name: Azure login
-      uses: azure/login@v1.4.3
+      uses: azure/login@v1.4.5
       with:
         client-id: ${{ secrets.AZURE_CLIENT_ID }}
         tenant-id: ${{ secrets.AZURE_TENANT_ID }}
@@ -86,7 +86,7 @@ jobs:
 
     # Retrieves your Azure Kubernetes Service cluster's kubeconfig file
     - name: Get K8s context
-      uses: azure/aks-set-context@v2.0
+      uses: azure/aks-set-context@v3.0
       with:
         resource-group: ${{ env.RESOURCE_GROUP }}
         cluster-name: ${{ env.CLUSTER_NAME }}
@@ -105,7 +105,7 @@ jobs:
 
     # Creates a kubernetes secret on your Azure Kubernetes Service cluster that matches up to the credentials from the last step
     - name: Create K8s secret for pulling image from ACR
-      uses: Azure/k8s-create-secret@v1.1
+      uses: Azure/k8s-create-secret@v2.1
       with:
         container-registry-url: ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io
         container-registry-username: ${{ steps.get-acr-creds.outputs.username }}
@@ -125,7 +125,7 @@ jobs:
     
     # Logs in with your Azure credentials
     - name: Azure login
-      uses: azure/login@v1.4.3
+      uses: azure/login@v1.4.5
       with:
         client-id: ${{ secrets.AZURE_CLIENT_ID }}
         tenant-id: ${{ secrets.AZURE_TENANT_ID }}
@@ -133,7 +133,7 @@ jobs:
         
     # Retrieves your Azure Kubernetes Service cluster's kubeconfig file
     - name: Get K8s context
-      uses: azure/aks-set-context@v2.0
+      uses: azure/aks-set-context@v3.0
       with:
         resource-group: ${{ env.RESOURCE_GROUP }}
         cluster-name: ${{ env.CLUSTER_NAME }}
@@ -152,7 +152,7 @@ jobs:
 
     # Deploys application based on manifest files from previous step
     - name: Deploy application
-      uses: Azure/k8s-deploy@v3.1
+      uses: Azure/k8s-deploy@v4.2
       with:
         action: deploy
         manifests: ${{ steps.bake.outputs.manifestsBundle }}
