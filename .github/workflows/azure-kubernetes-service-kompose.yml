@@ -103,7 +103,7 @@ jobs:
 
     # Creates a kubernetes secret on your Azure Kubernetes Service cluster that matches up to the credentials from the last step
     - name: Create K8s secret for pulling image from ACR
-      uses: Azure/k8s-create-secret@v2.1
+      uses: Azure/k8s-create-secret@v4.0
       with:
         container-registry-url: ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io
         container-registry-username: ${{ steps.get-acr-creds.outputs.username }}
@@ -138,7 +138,7 @@ jobs:
 
     # Runs Kompose to create manifest files
     - name: Bake deployment
-      uses: azure/k8s-bake@v2.1
+      uses: azure/k8s-bake@v2.3
       with:
         renderEngine: 'kompose'
         dockerComposeFile: ${{ env.DOCKER_COMPOSE_FILE_PATH }}
