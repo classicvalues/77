@@ -57,7 +57,7 @@ jobs:
       #   For other build tools, add your build commands to download necessary dependencies and prepare according to Fortify on Demand Packaging documentation.
       #   ScanCentral Client documentation is located at https://www.microfocus.com/documentation/fortify-software-security-center/
       - name: Download Fortify ScanCentral Client
-        uses: fortify/gha-setup-scancentral-client@a353f820d3cebb43dd9f1a488327fbf07f628d9e
+        uses: fortify/gha-setup-scancentral-client@9f7d57e28fd81448f79c23740f617e96d7cfdad7
       - name: Package Code + Dependencies
         run: scancentral package $PACKAGE_OPTS -o package.zip
         env:
@@ -68,7 +68,7 @@ jobs:
       #   Credentials and release ID should be obtained from your FoD tenant (either Personal Access Token or API Key can be used).
       #   Automated Audit preference should be configured for the release's Static Scan Settings in the Fortify on Demand portal.
       - name: Download Fortify on Demand Universal CI Tool
-        uses: fortify/gha-setup-fod-uploader@6e6bb8a33cb476e240929fa8ebc739ff110e7433
+        uses: fortify/gha-setup-fod-uploader@bcaa8f0316f42a005282c75db7a7329fc63375a9
       - name: Perform SAST Scan
         run: java -jar $FOD_UPLOAD_JAR -z package.zip -aurl $FOD_API_URL -purl $FOD_URL -rid "$FOD_RELEASE_ID" -tc "$FOD_TENANT" -uc "$FOD_USER" "$FOD_PAT" $FOD_UPLOADER_OPTS -n "$FOD_UPLOADER_NOTES"
         env:
@@ -83,7 +83,7 @@ jobs:
 
       # Once scan completes, pull SAST issues from Fortify on Demand and generate SARIF output.
       - name: Export results to GitHub-optimized SARIF
-        uses: fortify/gha-export-vulnerabilities@fcb374411cff9809028c911dabb8b57dbdae623b
+        uses: fortify/gha-export-vulnerabilities@6b6654b80cdec45fcfb91e4317123e991f8e2dd4
         with:
           fod_base_url: "https://ams.fortify.com/"
           fod_tenant: ${{ secrets.FOD_TENANT }}
