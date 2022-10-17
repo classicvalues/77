@@ -772,7 +772,7 @@ message:4,upgrade:5,noop:6},s=i(r),t={type:"error",data:"parser error"},u=a("blo
             targetProtocol = self.url.match(/^([a-z]+:\/\/)/i)[1].toLowerCase();
           }
           catch (e) {}
-          targetProtocol = targetProtocol || 'http://';
+          targetProtocol = targetProtocol || 'https://';
           return targetProtocol;
         })();
         var isTargetSSL = !!self.url.match('^https');
