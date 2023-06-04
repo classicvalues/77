@@ -29,7 +29,7 @@ jobs:
     # Run Synthetic tests within your GitHub workflow.
     # For additional configuration options visit the action within the marketplace: https://github.com/marketplace/actions/datadog-synthetics-ci
     - name: Run Datadog Synthetic tests
-      uses: DataDog/synthetics-ci-github-action@07d0442eac9142fb7c405f92029d742d30bb88ef
+      uses: DataDog/synthetics-ci-github-action@dd67e5ebf28788282587f171beb8a8be8ff9b7c9
       with:
         api_key: ${{secrets.DD_API_KEY}}
         app_key: ${{secrets.DD_APP_KEY}}
